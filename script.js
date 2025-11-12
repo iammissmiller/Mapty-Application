@@ -31,10 +31,17 @@ map.on('click' , function(mapEvent) {
     const {lat, lng} = mapEvent.latlng;
 
     L.marker([lat , lng]).addTo(map)
-    .bindPopup(L.popup())
+    .bindPopup(L.popup({
+        maxwidth: 100,
+        minwidth: 100,
+        autoClose: false,
+        closeOnClick: false,
+        className: 'running-popup'
+    }))
+    .setPopupContent('Workout')
     .openPopup();
 
-})
+});
 
 }
  , function() {
